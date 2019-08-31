@@ -12,7 +12,9 @@ linux安装：
 - python-dev
 - gcc
 
-  ```sudo apt-get install python-dev gcc```
+  ```
+  sudo apt-get install python-dev gcc
+  ```
   
 python安装第三方库
 
@@ -20,7 +22,9 @@ python安装第三方库
 
 - `Cython`
 
-  `pip install pycrypto Cython`
+  ```
+  pip install pycrypto Cython
+  ```
   
   
 # Usage
