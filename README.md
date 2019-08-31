@@ -26,7 +26,6 @@ python安装第三方库
   pip install pycrypto Cython
   ```
   
-  
 # Usage
 TODO：将本工程下`Example/`目录下的代码加密并进行license控制
 
@@ -39,31 +38,38 @@ TODO：将本工程下`Example/`目录下的代码加密并进行license控制
 
 ### Step 1: 加密python代码
 将`Example/get_time.py`加密
-- 将待加密脚本填写到`Encrypt_py/setup.py`中的变量`key_funs`中，加密后会删除原文件，最好备份一下。
+- 将待加密脚本填写到`Example/setup.py`中的变量`key_funs`中，加密后会删除原文件，最好备份一下。
+
 - 备份待加密的脚本
 `cp ./Example/get_time.py ./Example/get_time.py.bak`
+
 - 加密脚本，运行
 ```
-python ./Encrypt_py/setup.py build_ext --inplace
+cd Example/
+python setup.py build_ext --inplace
 ```
-程序运行成功的话会生成与`.py`文件同名的`.os`文件，这就是加密了的`.py`文件
+程序运行成功的话会生成与`.py`文件同名的`.os`文件，加密完成
+
 
 ### Step 2: 授权给用户主机
 (即加密目标主机MAC地址)
 - 获取目标主机的MAC地址
 - 指定`CreateLicense.py`中的密钥：`seperateKey`, `aesKey`,和 `aesIv`
 - 加密MAC地址得到密文
-```linux
-python ./License_control/CreateLicense.py <MAC地址>
+cd到`License_control/`路径下
+```
+cd ../License_control/
+python CreateLicense.py <MAC地址>
 ```
 生成licese.lic，此即为MAC的加密文件。将此密文放到`Example/`路径下。
 ```
-cp ./License_control/license.lic ./Example/
+mv license.lic ../Example/
 ```
+
 
 ### Step 3: 测试
 ```
-cd Example/
+cd ../Example/
 python main.py
 ```
 
