@@ -1,14 +1,17 @@
 # Encrypt-python-code-License-control
 python代码加密以及python代码的License控制
+
+
 # Overview
 - python代码加密：将python代码编译成c/c++，然后再编译成python的扩展模块，即`.os`文件，起到保护python代码的目的，防止别修改/查看你的Python源码。
 - License控制：为你的Python代码指定运行的主机，即只有获得你授权的计算机才能运行你的python代码，同时也可以为python代码设置有效期，过期后无法运行。
+
 
 # Requirement
 linux安装：
 - python-dev
 - gcc
-  `sudo apt-get install python-dev gcc`
+  ```sudo apt-get install python-dev gcc```
   
 python安装第三方库
 
@@ -17,6 +20,7 @@ python安装第三方库
 - `Cython`
 
   `pip install pycrypto Cython`
+  
   
 # Usage
 TODO：将本工程下`Example/`目录下的代码加密并进行license控制
