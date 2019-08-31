@@ -11,6 +11,7 @@ python代码加密以及python代码的License控制
 linux安装：
 - python-dev
 - gcc
+
   ```sudo apt-get install python-dev gcc```
   
 python安装第三方库
