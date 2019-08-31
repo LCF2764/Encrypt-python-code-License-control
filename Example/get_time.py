@@ -1,4 +1,8 @@
 # coding:utf-8
+###############################
+# python代码加密与License控制例子
+#    这是需要License控制的脚本
+###############################
 import socket, fcntl, datetime, os, struct
 from Crypto.Cipher import AES 
 from binascii import b2a_hex, a2b_hex 
@@ -63,12 +67,12 @@ class Get_License(object):
         else:
             return False, 'Invalid'
 
+# 以下是Liceshi控制的一种实施例子，仅供参考
 License = Get_License()
 condition, LicInfo = License.getLicenseInfo()
 
-
 class Today():
-    def get_time(self):
+    def get_time(self):       
         if condition==True and LicInfo=='Valid':
             print(datetime.datetime.now())
         else:
