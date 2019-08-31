@@ -9,7 +9,7 @@ python代码加密以及python代码的License控制
 - Linux （暂时不支持windows系统）
 - pycrypto
 # Usage
-示例：现在要交付代码给客户，但是想限定客户只能在经你权授的计算机上执行这些代码。根据以下步骤即可实现这个功能。
+示例：现在要交付代码给用户，但是想限定用户只能在经你权授的计算机上执行这些代码。根据以下步骤即可实现这个功能。
 
 - ##  encypt python code
 ### Step 0: Preparation
