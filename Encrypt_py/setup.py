@@ -8,7 +8,7 @@ import os
 使用Cpython 编译python文件，关键函数编译成pyd文件（相当于dll）
 '''
 # 在列表中输入需要加密的py文件
-key_funs = ['xxx.py', 'yyy.py']
+key_funs = ['./Example/get_time.py']
 
 setup(
     name="XX app", 
