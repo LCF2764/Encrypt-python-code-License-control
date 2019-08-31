@@ -46,7 +46,7 @@ TODO：将本工程下`Example/`目录下的代码加密并进行license控制
 ```
 python ./Encrypt_py/setup.py build_ext --inplace
 ```
-程序运行成功的话会生成与`.py`文件同名的`.os`文件，这就是加密了的`.py'文件
+程序运行成功的话会生成与`.py`文件同名的`.os`文件，这就是加密了的`.py`文件
 
 ### Step 2: 授权给用户主机
 (即加密目标主机MAC地址)
