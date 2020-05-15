@@ -6,6 +6,7 @@
 import socket, fcntl, datetime, os, struct
 from Crypto.Cipher import AES 
 from binascii import b2a_hex, a2b_hex 
+import time
 
 class Get_License(object):
     def __init__(self):
@@ -81,6 +82,8 @@ class Today():
     def say(self):
         if condition==True and LicInfo=='Valid':
             print('hello world!')
+            localtime = time.asctime( time.localtime(time.time()) )
+            print("本地时间为 :", localtime)
         else:
             print('未权授！')
 
