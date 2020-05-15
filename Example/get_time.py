@@ -83,7 +83,7 @@ class Today():
         if condition==True and LicInfo=='Valid':
             print('hello world!')
             localtime = time.asctime( time.localtime(time.time()) )
-            print("本地时间为 :", localtime)
+            print("The local time is now:", localtime)
         else:
             print('未权授！')
 
