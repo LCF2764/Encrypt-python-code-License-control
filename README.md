@@ -56,9 +56,16 @@ python setup.py build_ext --inplace
 ### Step 2: 授权给用户主机
 (即加密目标主机MAC地址)
 - 获取目标主机的MAC地址
+用`/License_control/GetHostInfo.py`这个脚本获取目标主机的MAC地址：
+
+```python
+# 在目标主机执行以下程序, 会在控制台输出MAC地址
+cd ./License_control
+python GetHostInfo.py
+```
 - 指定`CreateLicense.py`中的密钥：`seperateKey`, `aesKey`,和 `aesIv`
 - 加密MAC地址得到密文
-cd到`License_control/`路径下
+cd到`License_control/`路径下，将上面得到的MAC地址填到`<MAC地址>`处
 ```
 cd ../License_control/
 python CreateLicense.py <MAC地址>
