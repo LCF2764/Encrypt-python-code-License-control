@@ -4,8 +4,12 @@ from Cython.Build import cythonize
 import os
 
 '''
-该文件的执行需要的在Terminal中输入   python setup.py build_ext --inplace 
-使用Cpython 编译python文件，关键函数编译成pyd文件（相当于dll）
+TODO:
+    使用Cpython 编译python文件，将.py文件编译成.c文件和.so文件
+
+USAGE:
+    python setup.py build_ext --inplace 
+
 '''
 # 在列表中输入需要加密的py文件
 key_funs = ['get_time.py']
@@ -15,20 +19,4 @@ setup(
     ext_modules = cythonize(key_funs),
 )
 
-'''
-1、将编译后的pyd文件的命名更改成与原py文件一致
-2、删除编译后得到的c文件和原py文件
-'''
-print("——————", os.getcwd(), "——————")
-
-files = os.listdir(os.getcwd())
-print(files)
-
-for fi in files:
-    if fi.__contains__(".pyd"):
-        re_name = fi.split(".")[0] + ".pyd"
-        print(re_name)
-        os.rename(fi, re_name)
-    elif fi.__contains__(".c") or fi in key_funs:
-        os.remove(fi)
 print('Done!')
