@@ -42,18 +42,20 @@ TODO：将本工程下`Example/`目录下的代码加密并进行license控制
 
 
 #### Step 1: 加密python代码
-将`Example/get_time.py`加密
-- 将待加密脚本填写到`Example/setup.py`中的变量`key_funs`中，加密后会删除原文件，最好备份一下。
+将`Encrypt_py/get_time.py`加密
+- 将待加密的python文件名填写到`Encrypt_py/setup.py`里的`key_funs`列表中。
 
-- 备份待加密的脚本
-`cp ./Example/get_time.py ./Example/get_time.py.bak`
 
 - 加密脚本，运行
+  ```
+  cd Encrypt_py/
+  python setup.py build_ext --inplace
+  ```
+程序运行成功的话会生成与`.py`文件同名的`.os`文件，加密完成。
+将加密得到的`get_time.so`文件放到`/test`路径下：
 ```
-cd Example/
-python setup.py build_ext --inplace
+cp get_time.so ../test
 ```
-程序运行成功的话会生成与`.py`文件同名的`.os`文件，加密完成
 
 
 #### Step 2: 授权给用户主机
@@ -61,27 +63,27 @@ python setup.py build_ext --inplace
 - 获取目标主机的MAC地址
 用`/License_control/GetHostInfo.py`这个脚本获取目标主机的MAC地址：
 
-```python
+```
 # 在目标主机执行以下程序, 会在控制台输出MAC地址
-cd ./License_control
+cd ../License_control
 python GetHostInfo.py
 ```
 - 指定`CreateLicense.py`中的密钥：`seperateKey`, `aesKey`,和 `aesIv`
 - 加密MAC地址得到密文
 cd到`License_control/`路径下，将上面得到的MAC地址填到`<MAC地址>`处
 ```
-cd ../License_control/
+
 python CreateLicense.py <MAC地址>
 ```
-生成licese.lic，此即为MAC的加密文件。将此密文放到`Example/`路径下。
+生成licese.lic，此即为MAC的加密文件。将此密文放到`test/`路径下。
 ```
-mv license.lic ../Example/
+mv license.lic ../test
 ```
 
 
 #### Step 3: 测试
 ```
-cd ../Example/
+cd ../test
 python main.py
 ```
 
